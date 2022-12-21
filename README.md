@@ -1,26 +1,29 @@
-# SSAM - Garbage collection days in Home assistant
+# JUNEAVFALL - Garbage collection days in Home assistant
+
+FORKED FROM: https://github.com/endor-force/home-assistant-ssam-garbagecollection
+
+Modified to work with JUNE AVFALL.
 
 Instructions:
-1) Download the ssam.yaml file and place in your home assistant configuration folder or in a subfolder.
 
-2) Search using this page to get your full address and code, then copy in to the configuration.
-https://edpfuture.ssam.se/FutureWeb/SimpleWastePickup/Simplewastepickup  
+1. Download the juneavfall.yaml file and place in your home assistant configuration folder or in a subfolder.
 
-3) Update the row for the rest sensor resource template:
-Replace `Streetname 1, City (12345)` with your address and code (don't remove surrounding quotes).  
+2. Search using this page to get your full address and code, then copy in to the configuration.
+   https://www.juneavfall.se/hushall/soptomning/sok-din-tomningsdag.html
 
+3. Update the row for the rest sensor resource template:
+   Replace `Streetname 1, City (12345)` with your address and code (don't remove surrounding quotes).
 
-
-4) Add in configuration.yaml (assuming the ssam.yaml file is in a subfolder `packages`):
+4. Add in configuration.yaml (assuming the juneavfall.yaml file is in a subfolder `packages`):
 
 ```
 homeassistant:
   packages:
-    ssam: !include packages/ssam.yaml
+    ssam: !include packages/juneavfall.yaml
 ```
 
+5. Example automations to remind you about the garbage collection on the evening before:
 
-5) Example automations to remind you about the garbage collection on the evening before: 
 ```
 - id: ac22a80d775d4cbba83e174f0fc75dd4
   alias: Påminn om sophämtning 1
@@ -37,7 +40,7 @@ homeassistant:
       message: Sophämtning Soptunna 1 imorgon!
       title: Sophämtning kärl 1
     service: notify.notify
-    
+
 - id: 068a13b37bac4eb1afbec7b9d5fce444
   alias: Påminn om sophämtning 2
   trigger:
@@ -53,3 +56,4 @@ homeassistant:
       message: Sophämtning Soptunna 2 imorgon!
       title: Sophämtning kärl 2
     service: notify.notify
+```
